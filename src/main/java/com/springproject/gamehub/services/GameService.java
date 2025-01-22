@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.springproject.gamehub.dto.GameDTO;
 import com.springproject.gamehub.dto.GameMinDTO;
@@ -19,7 +20,7 @@ public class GameService {
 	
 	
 	@Transactional(readOnly = true)
-	public GameDTO findById(Long id) {
+	public GameDTO findById(@PathVariable Long id) {
 		Game result = gameRepository.findById(id).get();
 		return  new GameDTO(result);
 		
