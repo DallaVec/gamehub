@@ -1,6 +1,7 @@
 package com.springproject.gamehub.dto;
 
 import com.springproject.gamehub.entities.Game;
+import com.springproject.gamehub.projections.GameMinProjection;
 
 public class GameMinDTO {
 	
@@ -15,6 +16,15 @@ public class GameMinDTO {
 		
 	}
 
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+	}
+	
+	
 	public GameMinDTO(Game entity) {
 		id = entity.getId();
 		title = entity.getTitle();
